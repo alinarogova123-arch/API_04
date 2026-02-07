@@ -33,4 +33,7 @@ if __name__ == "__main__":
         photo_name = ('C:/python_scripts/API_04/images/' + name_space.name)
     else:
         photo_name = random.choice(image_names)
-    posting_image(photo_name)
+    try:
+        posting_image(photo_name)
+    except FileNotFoundError:
+            print("Не правильное имя файла")
