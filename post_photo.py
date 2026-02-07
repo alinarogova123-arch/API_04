@@ -36,4 +36,5 @@ if __name__ == "__main__":
     try:
         posting_image(photo_name)
     except FileNotFoundError:
-            print("Не правильное имя файла")
+            print("Неправильное имя файла")
+
