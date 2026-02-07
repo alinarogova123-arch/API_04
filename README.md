@@ -1,4 +1,7 @@
 # Космический Телеграм
+
+Автоматизирует загрузку фотографий о космосе на ваше хранилище и постинг их в телеграм канале.
+
 ## fetch_nasa_apods.py
 
 Скрипт скачивает фотографии дня NASA (apod) в папку "images", если папки с таким названием нет в директории скрипта, она появится.
@@ -34,7 +37,19 @@ python fetch_spacex_launches.py
 python fetch_spacex_launches.py 63
 ```
 
+## posting_telegram_bot.py
 
+Скрипт постит скачанные фотографии в телеграм канал.
+
+### Как запустить
+
+Вам потребуется API token вашего бота телеграм, а так же chat id вашего канала, так же нужно сделать вашего бота администраторм вашего канала.
+API token вашего бота присвоить переменной `POSTING_TELEGRAM_BOT_API_KEY`, chat id вашего канала присвоить переменной `TLGRM_CHAT_ID` в файле .env как в примере ниже:
+
+``` bash
+POSTING_TELEGRAM_BOT_API_KEY=jf85heik58fydjdkfifundk7
+TLGRM_CHAT_ID=@channel_id
+```
 
 
 
