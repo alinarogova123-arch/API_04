@@ -15,7 +15,7 @@ def create_parser():
     return parser
 
 
-def posting_image(interval):
+def posting_images(interval):
     load_dotenv(".env")
     token = os.environ["POSTING_TELEGRAM_BOT_API_KEY"]
     chat_id = os.environ["TLGRM_CHAT_ID"]
@@ -38,5 +38,5 @@ if __name__ == "__main__":
     parser = create_parser()
     interval_space = parser.parse_args()
     interval = (3600 * float(interval_space.hours))
-    posting_image(interval)
+    posting_images(interval)
 
