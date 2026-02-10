@@ -14,15 +14,15 @@ def create_parser():
     return parser
 
 
-def posting_image(photo_name):
-    load_dotenv(".env")
-    token = os.environ["POSTING_TELEGRAM_BOT_API_KEY"]
-    chat_id = os.environ["TLGRM_CHAT_ID"]
+def posting_image(photo_name, token, chat_id):
     bot = telegram.Bot(token=token)
     bot.send_photo(chat_id=chat_id, photo=open(photo_name, 'rb'))
 
 
 if __name__ == "__main__":
+    load_dotenv(".env")
+    token = os.environ["POSTING_TELEGRAM_BOT_API_KEY"]
+    chat_id = os.environ["TLGRM_CHAT_ID"]
     image_names = []
     folder = Path('images')
     for file in folder.iterdir():
@@ -34,7 +34,6 @@ if __name__ == "__main__":
     else:
         photo_name = random.choice(image_names)
     try:
-        posting_image(photo_name)
+        posting_image(photo_name, token, chat_id)
     except FileNotFoundError:
             print("Неправильное имя файла")
-
