@@ -12,10 +12,8 @@ def fetch_nasa_apod(token):
     }
     response = requests.get("https://api.nasa.gov/planetary/apod", params=params)
     response.raise_for_status()
-    i = 0
-    for image in response.json():
-        load_image(image['url'], f'images/nasa_apod_{i}.jpg')
-        i += 1
+    for image_number, image in enumerate(response.json()):
+        load_image(image['url'], f'images/nasa_apod_{image_number}.jpg')
 
 
 if __name__ == "__main__":
