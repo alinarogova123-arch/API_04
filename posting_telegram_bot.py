@@ -23,7 +23,8 @@ def posting_images(interval, token, chat_id):
     	image_names.append('C:/python_scripts/API_04/images/' + file.name)
     while True:
         for name in image_names:
-            bot.send_photo(chat_id=chat_id, photo=open(name, 'rb'))
+            with open(name, 'rb') as photo:
+                bot.send_photo(chat_id=chat_id, photo=photo)
             time.sleep(interval)
         image_names = random.sample(image_names, len(image_names))
 
