@@ -13,12 +13,10 @@ def create_parser():
 
 def fetch_spacex_launch(launch):
     response = requests.get(f"https://api.spacexdata.com/v3/launches/{launch}")
-    response.raise_for_status()
-    i = 0
-    for image in response.json()['links']['flickr_images']:
-        load_image(image, f'images/spacex_{i}.jpg')
-        i += 1
-
+    response.raise_for_status()   
+    for image_number, image in enumerate(response.json()['links']['flickr_images']):
+        load_image(image, f'images/spacex_{image_number}.jpg')
+        
 
 if __name__ == "__main__":
     parser = create_parser()
