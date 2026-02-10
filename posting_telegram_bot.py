@@ -10,7 +10,7 @@ from pathlib import Path
 
 def create_parser():
     parser = argparse.ArgumentParser(description="Запускает telegram бота по загрузке фотографий с нужным интервалом")
-    parser.add_argument('hours', nargs='?', default='4', help="Интервал между загрузками фотографий в часах")
+    parser.add_argument('hours', nargs='?', default='4', type=str, help="Интервал между загрузками фотографий в часах")
  
     return parser
 
@@ -39,4 +39,5 @@ if __name__ == "__main__":
     interval_space = parser.parse_args()
     interval = (3600 * float(interval_space.hours))
     posting_images(interval, token, chat_id)
+
 
