@@ -4,6 +4,14 @@ import json
 from PIL import Image
 
 
+def decrease_image(path):
+    image = Image.open(path)
+    image.thumbnail((2000, 1400))
+    image.save(path)
+
+    return path
+
+
 def load_image(url, path):
     os.makedirs("images", exist_ok=True)
     headers = {
@@ -13,6 +21,3 @@ def load_image(url, path):
     response.raise_for_status()
     with open(path, 'wb') as file:
         file.write(response.content)
-    image = Image.open(path)
-    image.thumbnail((2000, 1400))
-    image.save(path)
