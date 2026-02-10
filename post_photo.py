@@ -8,8 +8,8 @@ from pathlib import Path
 
 
 def create_parser():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('name', nargs='?', default=None)
+    parser = argparse.ArgumentParser(description="Загружает фотографию в telegram канал")
+    parser.add_argument('name', nargs='?', default=None, help="Название файла с фотографией")
  
     return parser
 
