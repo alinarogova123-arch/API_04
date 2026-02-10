@@ -22,8 +22,7 @@ if __name__ == "__main__":
     parser = create_parser()
     launch_space = parser.parse_args()
     launch = launch_space.launch_number
-    try:
-        fetch_spacex_launch(launch)
-    except requests.exceptions.HTTPError:
-        print("Выберите номер запуска до 100")
+    fetch_spacex_launch(launch)
+
+
 
