@@ -9,7 +9,7 @@ from pathlib import Path
 
 def create_parser():
     parser = argparse.ArgumentParser(description="Загружает фотографию в telegram канал")
-    parser.add_argument('name', nargs='?', default=None, help="Название файла с фотографией")
+    parser.add_argument('name', nargs='?', default=None, type=str, help="Название файла с фотографией")
  
     return parser
 
@@ -37,3 +37,4 @@ if __name__ == "__main__":
         posting_image(photo_name, token, chat_id)
     except FileNotFoundError:
             print("Неправильное имя файла")
+
