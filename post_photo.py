@@ -5,6 +5,7 @@ import random
 import argparse
 from dotenv import load_dotenv
 from pathlib import Path
+from load_helpers import decrease_image
 
 
 def create_parser():
@@ -16,6 +17,7 @@ def create_parser():
 
 def upload_image(photo_name, token, chat_id):
     bot = telegram.Bot(token=token)
+    photo_name = decrease_image(photo_name)
     with open(photo_name, 'rb') as photo:
         bot.send_photo(chat_id=chat_id, photo=photo)
 
