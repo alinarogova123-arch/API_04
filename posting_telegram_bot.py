@@ -21,14 +21,11 @@ def posting_images(interval, token, chat_id):
     folder = Path('images')
     for file in folder.iterdir():
     	image_names.append('C:/python_scripts/API_04/images/' + file.name)
-    for name in image_names:
-        bot.send_photo(chat_id=chat_id, photo=open(name, 'rb'))
-        time.sleep(interval)
     while True:
-        image_names = random.sample(image_names, len(image_names))
         for name in image_names:
             bot.send_photo(chat_id=chat_id, photo=open(name, 'rb'))
             time.sleep(interval)
+        image_names = random.sample(image_names, len(image_names))
 
 
 if __name__ == "__main__":
@@ -39,5 +36,4 @@ if __name__ == "__main__":
     interval_space = parser.parse_args()
     interval = (3600 * float(interval_space.hours))
     posting_images(interval, token, chat_id)
-
 
