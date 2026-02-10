@@ -15,7 +15,7 @@ def create_parser():
     return parser
 
 
-def posting_images(interval, token, chat_id):
+def launch_upload_bot(interval, token, chat_id):
     bot = telegram.Bot(token=token)
     image_names = []
     folder = Path('images')
@@ -36,5 +36,5 @@ if __name__ == "__main__":
     parser = create_parser()
     interval_space = parser.parse_args()
     interval = (3600 * float(interval_space.hours))
-    posting_images(interval, token, chat_id)
+    launch_upload_bot(interval, token, chat_id)
 
