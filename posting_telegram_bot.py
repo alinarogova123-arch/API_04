@@ -6,6 +6,7 @@ import time
 import argparse
 from dotenv import load_dotenv
 from pathlib import Path
+from load_helpers import decrease_image
 
 
 def create_parser():
@@ -23,6 +24,7 @@ def launch_upload_bot(interval, token, chat_id):
     	image_names.append('C:/python_scripts/API_04/images/' + file.name)
     while True:
         for name in image_names:
+            name = decrease_image(name)
             with open(name, 'rb') as photo:
                 bot.send_photo(chat_id=chat_id, photo=photo)
             time.sleep(interval)
