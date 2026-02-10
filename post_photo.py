@@ -14,7 +14,7 @@ def create_parser():
     return parser
 
 
-def posting_image(photo_name, token, chat_id):
+def upload_image(photo_name, token, chat_id):
     bot = telegram.Bot(token=token)
     with open(photo_name, 'rb') as photo:
         bot.send_photo(chat_id=chat_id, photo=photo)
@@ -35,6 +35,6 @@ if __name__ == "__main__":
     else:
         photo_name = random.choice(image_names)
     try:
-        posting_image(photo_name, token, chat_id)
+        upload_image(photo_name, token, chat_id)
     except FileNotFoundError:
             print("Неправильное имя файла")
