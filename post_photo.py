@@ -26,14 +26,15 @@ if __name__ == "__main__":
     load_dotenv(".env")
     token = os.environ["POSTING_TELEGRAM_BOT_API_KEY"]
     chat_id = os.environ["TLGRM_CHAT_ID"]
+    absolute_path = Path('images').resolve()
     image_names = []
     folder = Path('images')
     for file in folder.iterdir():
-        image_names.append('C:/python_scripts/API_04/images/' + file.name)
+        image_names.append(absolute_path / file.name)
     parser = create_parser()
     name_space = parser.parse_args()
     if name_space.name:
-        photo_name = ('C:/python_scripts/API_04/images/' + name_space.name)
+        photo_name = (absolute_path / name_space.name)
     else:
         photo_name = random.choice(image_names)
     try:
