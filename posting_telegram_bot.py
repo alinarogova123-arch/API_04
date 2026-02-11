@@ -18,10 +18,11 @@ def create_parser():
 
 def launch_upload_bot(interval, token, chat_id):
     bot = telegram.Bot(token=token)
+    absolute_path = Path('images').resolve()
     image_names = []
     folder = Path('images')
     for file in folder.iterdir():
-    	image_names.append('C:/python_scripts/API_04/images/' + file.name)
+    	image_names.append(absolute_path / file.name)
     while True:
         for name in image_names:
             name = decrease_image(name)
