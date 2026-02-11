@@ -6,7 +6,7 @@ from load_helpers import load_image
 
 def create_parser():
     parser = argparse.ArgumentParser(description="Скачивает фотографии запуска ракет SpaceX")
-    parser.add_argument('launch_number', nargs='?', default='100', type=str, help="Номер запуска ракеты SpaceX")
+    parser.add_argument('launch_number', nargs='?', default='100', type=int, help="Номер запуска ракеты SpaceX")
  
     return parser
 
@@ -23,6 +23,7 @@ if __name__ == "__main__":
     launch_space = parser.parse_args()
     launch = launch_space.launch_number
     fetch_spacex_launch(launch)
+
 
 
 
