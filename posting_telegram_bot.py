@@ -11,7 +11,7 @@ from load_helpers import decrease_image
 
 def create_parser():
     parser = argparse.ArgumentParser(description="Запускает telegram бота по загрузке фотографий с нужным интервалом")
-    parser.add_argument('hours', nargs='?', default='4', type=str, help="Интервал между загрузками фотографий в часах")
+    parser.add_argument('hours', nargs='?', default='4', type=float, help="Интервал между загрузками фотографий в часах")
  
     return parser
 
@@ -38,6 +38,6 @@ if __name__ == "__main__":
     chat_id = os.environ["TLGRM_CHAT_ID"]
     parser = create_parser()
     interval_space = parser.parse_args()
-    interval = (3600 * float(interval_space.hours))
+    interval = 3600 * interval_space.hours
     launch_upload_bot(interval, token, chat_id)
 
