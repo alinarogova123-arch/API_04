@@ -20,9 +20,10 @@ def fetch_spacex_launch(launch):
 
 if __name__ == "__main__":
     parser = create_parser()
-    launch_space = parser.parse_args()
-    launch = launch_space.launch_number
+    launch_args = parser.parse_args()
+    launch = launch_args.launch_number
     fetch_spacex_launch(launch)
+
 
 
 
